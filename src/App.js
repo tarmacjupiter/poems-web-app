@@ -1,22 +1,18 @@
-import logo from './logo.svg';
 import './App.css';
+import MultilineTextFields from './components/MultilineTextFields';
+import BasicModal from './components/BasicModal';
 
 function App() {
   return (
     <div className="App">
       <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
+        <h1>User Generated Poems</h1>
+        <div className="forms">
+          <MultilineTextFields />
+        </div>
+        <div>
+          <BasicModal />
+        </div>
       </header>
     </div>
   );

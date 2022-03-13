@@ -13,8 +13,17 @@
   }
 }
 
+.forms {
+  color: white;
+}
+
+.flexbox-container {
+  display: flex;
+  flex-direction: row;
+}
+
 .App-header {
-  background-color: #282c34;
+  background-color: #354e54;
   min-height: 100vh;
   display: flex;
   flex-direction: column;
