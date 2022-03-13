@@ -68,12 +68,12 @@ export default function MultilineTextFields() {
     let output = [];
     while (i > 0) {
       let poem = prompt(
-        "What poem would you like to take from?\nPoem 1 or Poem 2?"
+        "What poem would you like to take from?\nPoem 1 or Poem 2?\ne.x (poem 1 or p2)"
       ).toLowerCase();
       let poemStr;
-      if (poem === "poem 1") {
+      if (poem === "poem 1" || poem === "p1") {
         poemStr = firstPoem;
-      } else if (poem === "poem 2") {
+      } else if (poem === "poem 2" || poem === "p2") {
         poemStr = secondPoem;
       }
       let num = prompt(
@@ -90,6 +90,69 @@ export default function MultilineTextFields() {
   };
 
   /**
+   * have empty array
+   * iterate through a random length determined by a random number between 0, 1
+   * assign that length to a variable
+   * 
+   * have a for loop that iterates that variables length
+   * have two random numbers
+   * one for which poem (will be 0 or 1)
+   * create another array and fill it with numbers up to the length
+   * 
+   * update state
+   * @param {*} e 
+   */
+  const randomPoems = (e) => {
+    e.preventDefault();
+    let output = []
+    let firstPoem = sendValue(e);
+    let secondPoem = sendSecondValue(e);
+
+    if(firstPoem == "" || secondPoem == ""){
+      alert("Please enter text into the text fields!")
+      return;
+    }
+
+    let length = 0
+    let choosingLength = getRandomInt(0, 1);
+    if(choosingLength == 0){
+      length = firstPoem.length;
+    } else if(choosingLength == 1){
+      length = secondPoem.length
+    }
+
+    // Creating array with no repeats to shuffle later
+    let numbers = [];
+    for(let i = 0; i < length; i++){
+      numbers.push(i);
+    }
+
+    // Shuffle the numbers array
+    const shuffledNumbers = numbers.sort((a, b) => 0.5 - Math.random());
+    
+
+    //For loop to push a new line from a random poem into the array
+    for(let i = 0; i < length; i++){
+      let randomPoem = getRandomInt(0, 1);
+      if(randomPoem === 0){
+        output.push(<div>{takeFromArray(firstPoem, shuffledNumbers[i])}</div>)
+      } else if(randomPoem === 1){
+        output.push(<div>{takeFromArray(secondPoem, shuffledNumbers[i])}</div>)
+      }
+    }
+
+    setValue(output)
+    
+  }
+
+  // Getting random number
+  function getRandomInt(min, max) {
+    min = Math.ceil(min);
+    max = Math.floor(max);
+    return Math.floor(Math.random() * (max - min + 1)) + min;
+}
+
+  /**
    * Returns a single line from a poem
    */
   const takeFromArray = (arr, index) => {
@@ -100,25 +163,29 @@ export default function MultilineTextFields() {
     <div className="flexbox-container">
       <form noValidate autoComplete="off">
         <Stack spacing={5} direction="row">
-          <div>
-            <TextField
-              id="outlined-textarea"
-              label="Poem 1"
-              placeholder="Insert Poem Here"
-              multiline
-              inputRef={valueRef}
-            />
-          </div>
-
-          <div>
-            <TextField
-              id="outlined-textarea"
-              label="Poem 2"
-              placeholder="Insert Poem Here"
-              multiline
-              inputRef={secondValueRef}
-            />
-          </div>
+            <Stack direction="column">
+              <div>
+              <TextField
+                id="outlined-textarea"
+                placeholder="Insert Poem Here"
+                multiline
+                inputRef={valueRef}
+              />
+            </div>
+            <p style={{color: "#607c3c"}}>Poem 1</p>
+            </Stack>
+            <Stack direction="column">
+              <div>
+                <TextField
+                  id="outlined-textarea"
+                  // label="Poem 2"
+                  placeholder="Insert Poem Here"
+                  multiline
+                  inputRef={secondValueRef}
+                />
+              </div>
+              <p style={{color: "#607c3c"}}>Poem 2</p>
+            </Stack>
         </Stack>
         <br />
         <Button
@@ -133,7 +200,27 @@ export default function MultilineTextFields() {
             },
           }}
         >
-          Show poems
+          <strong>
+            CHOP
+          </strong>
+        </Button>
+        <br />
+        <br />
+        <Button
+          onClick={randomPoems}
+          variant="contained"
+          sx={{
+            backgroundColor: "#ececa3",
+            color: "black",
+            ":hover": {
+              background: "#809c13  ",
+              color: "white",
+            },
+          }}
+        >
+          <strong>
+            RANDOM CHOP
+          </strong>
         </Button>
         <div>
           <h3 id="finalOutput" style={{color: "#607c3c"}}>{value}</h3>
