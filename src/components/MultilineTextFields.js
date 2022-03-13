@@ -125,10 +125,10 @@ export default function MultilineTextFields() {
           onClick={startingPoems}
           variant="contained"
           sx={{
-            backgroundColor: "#cab1ab",
+            backgroundColor: "#ececa3",
             color: "black",
             ":hover": {
-              background: "#071a1f",
+              background: "#809c13  ",
               color: "white",
             },
           }}
@@ -136,7 +136,7 @@ export default function MultilineTextFields() {
           Show poems
         </Button>
         <div>
-          <h3 id="finalOutput">{value}</h3>
+          <h3 id="finalOutput" style={{color: "#607c3c"}}>{value}</h3>
         </div>
       </form>
       <br />

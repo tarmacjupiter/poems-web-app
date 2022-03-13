@@ -6,7 +6,7 @@ function App() {
   return (
     <div className="App">
       <header className="App-header">
-        <h1 style={{ color: "#cab1ab" }}>Chopped Salad 🥗</h1>
+        <h1 style={{ color: "#607c3c" }}>Chopped Salad 🥗</h1>
         <div className="forms">
           <MultilineTextFields />
         </div>

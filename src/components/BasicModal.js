@@ -11,11 +11,12 @@ const style = {
   top: "50%",
   left: "50%",
   transform: "translate(-50%, -50%)",
-  width: 400,
+  width: "50%",
   bgcolor: "background.paper",
   border: "2px solid #000",
   boxShadow: 24,
   p: 4,
+  backgroundColor: "#ececa3"
 };
 
 export default function BasicModal() {
@@ -29,10 +30,10 @@ export default function BasicModal() {
         onClick={handleOpen}
         variant="contained"
         sx={{
-          backgroundColor: "#cab1ab",
+          backgroundColor: "#ececa3",
           color: "black",
           ":hover": {
-            background: "#071a1f",
+            background: "#809c13",
             color: "white",
           },
         }}
@@ -54,7 +55,7 @@ export default function BasicModal() {
             sx={{ mt: 2 }}
             component="span"
           >
-            Chopped Salad is a user poem generator, that CHOPS up poems you used
+            Chopped Salad is a User Generated Poem software that <strong>CHOPS</strong> up poems you use
             to make a nice poem salad.
             <br />
             <br />
@@ -69,10 +70,9 @@ export default function BasicModal() {
             <br />
             <br />
             If you would like to support Chopped Salad, and me, use {"\t"}
-            <a href="https://venmo.com/code?user_id=2991224109662208345">
-              this
+            <a href="https://venmo.com/code?user_id=2991224109662208345" style={{color: "#607c3c"}}>
+              this link
             </a>{" "}
-            link
             <br />
             <br />
             <a href="https://github.com/tarmacjupiter">
