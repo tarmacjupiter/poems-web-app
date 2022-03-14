@@ -66,41 +66,46 @@ export default function MultilineTextFields() {
 
     // Staring while loop to iterate throughout Poems
     let output = [];
+    // Trap user to answer questions until conditions are met
     while (i > 0) {
       let poem = prompt(
         "What poem would you like to take from?\nPoem 1 or Poem 2?\ne.x (poem 1 or p2)"
       ).toLowerCase();
+
+      // Assigning poemStr to either chosen poem
       let poemStr;
       if (poem === "poem 1" || poem === "p1") {
         poemStr = firstPoem;
       } else if (poem === "poem 2" || poem === "p2") {
         poemStr = secondPoem;
+      } else {
+        alert("Please enter a valid input!")
+        continue;
       }
+
+      // User picking number
       let num = prompt(
         "What line would you like to take from " +
           poem +
           "?\nLines remaining:\n" +
           numbers
       );
+      // Remove specified number to later show available lines
       arrayRemove(numbers, parseInt(num));
+
+      // Push the output of takeFromArray
       output.push(<div>{takeFromArray(poemStr, parseInt(num))}</div>);
       i--;
     }
+
+    // Updating state
     setValue(output);
   };
 
   /**
-   * have empty array
-   * iterate through a random length determined by a random number between 0, 1
-   * assign that length to a variable
-   * 
-   * have a for loop that iterates that variables length
-   * have two random numbers
-   * one for which poem (will be 0 or 1)
-   * create another array and fill it with numbers up to the length
-   * 
-   * update state
-   * @param {*} e 
+   * Creating an array as long as the longest poems length, then shuffling
+   * said array and assinging values starting at index 0
+   * @param e (used to preventDefault() method of the onClick method)
    */
   const randomPoems = (e) => {
     e.preventDefault();
@@ -108,11 +113,13 @@ export default function MultilineTextFields() {
     let firstPoem = sendValue(e);
     let secondPoem = sendSecondValue(e);
 
+    // Checking to make sure the textfields are filled
     if(firstPoem == "" || secondPoem == ""){
       alert("Please enter text into the text fields!")
       return;
     }
 
+    // Choosing a random length for either poem
     let length = 0
     let choosingLength = getRandomInt(0, 1);
     if(choosingLength == 0){
@@ -141,6 +148,7 @@ export default function MultilineTextFields() {
       }
     }
 
+    // Updating state
     setValue(output)
     
   }

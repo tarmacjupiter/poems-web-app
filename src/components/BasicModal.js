@@ -4,7 +4,6 @@ import Button from "@mui/material/Button";
 import Typography from "@mui/material/Typography";
 import Modal from "@mui/material/Modal";
 import GitHubImage from "../assets/github.png";
-import VenmoImage from "../assets/venmo.png";
 
 const style = {
   position: "absolute",
@@ -39,7 +38,7 @@ export default function BasicModal() {
           },
         }}
       >
-        Info
+        About me
       </Button>
       <Modal
         open={open}
