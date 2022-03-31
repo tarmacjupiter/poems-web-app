@@ -25,7 +25,7 @@ export default function BasicModal() {
   const handleClose = () => setOpen(false);
 
   return (
-    <div>
+    <div style={{marginTop: 25}}>
       <Button
         onClick={handleOpen}
         variant="contained"

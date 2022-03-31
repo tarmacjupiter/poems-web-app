@@ -167,6 +167,13 @@ export default function MultilineTextFields() {
     return arr[index];
   };
 
+  /**
+   * Empty all the state and data
+   */
+  const reset = () => {
+    window.location.reload(true);
+  }
+
   return (
     <div className="flexbox-container">
       <form noValidate autoComplete="off">
@@ -232,6 +239,24 @@ export default function MultilineTextFields() {
         </Button>
         <div>
           <h3 id="finalOutput" style={{color: "#607c3c"}}>{value}</h3>
+        </div>
+        <div>
+          <Button
+            onClick={reset}
+            variant="contained"
+            sx={{
+              backgroundColor: "#ececa3",
+              color: "black",
+              ":hover": {
+                background: "#809c13  ",
+                color: "white",
+              },
+            }}
+          >
+            <strong>
+              RESET
+            </strong>
+          </Button>
         </div>
       </form>
       <br />

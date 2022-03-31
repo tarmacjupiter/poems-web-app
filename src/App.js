@@ -1,3 +1,4 @@
+import React from 'react'
 import "./App.css";
 import MultilineTextFields from "./components/MultilineTextFields";
 import BasicModal from "./components/BasicModal";
