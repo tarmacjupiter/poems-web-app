@@ -8,7 +8,7 @@
 
 > User Generated Poems!
 
-### 🏠 [Homepage](https://choppedsalad.netlify.app)
+### 🏠 [Chop some Poetic Salads!](https://choppedsalad.netlify.app)
 
 ## Install
 
